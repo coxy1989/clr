@@ -9,15 +9,11 @@ This repository provides an implementation of the paper: *Cyclical Learning Rate
 
 ## Results
 
-### Paper
-
 ![table 1](./images/clr_table1.png)
 
 ![figure_1](./images/clr_cifar10.png)
 
 ![figure_3](./images/clr_lrrt.png)
-
-### This Implementation
 
 ## Notes
 
