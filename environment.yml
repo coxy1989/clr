@@ -1,0 +1,13 @@
+name: clr
+channels:
+        - pytorch
+        - anaconda
+dependencies:
+        - python=3.7
+        - jupyter=1.0.0
+        - pytorch=1.0.0
+        - torchvision=0.2.1
+        - numpy=1.15.4
+        - pandas=0.23.4
+        - seaborn=0.9.0
+        - tqdm=4.28.1
