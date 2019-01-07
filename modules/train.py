@@ -1,5 +1,5 @@
 import torch
-import tqdm
+from tqdm.autonotebook import tqdm
 from torch import nn, Tensor, optim
 from typing import Dict, Callable
 
@@ -66,6 +66,7 @@ def on_batch_end(recorder:Dict,
                  test_dl: torch.utils.data.dataloader.DataLoader,
                  model: nn.Module,
                  criterion: nn.Module,
+                 device: torch.device,
                  p_bar:tqdm,
                  it_num:int,
                  trn_loss:float,
