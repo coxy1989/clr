@@ -9,11 +9,41 @@ This repository provides an implementation of the paper: *Cyclical Learning Rate
 
 ## Results
 
-![table 1](./images/clr_table1.png)
+### Table 1
+
+Table of results displaying final accuracies for LR policies on CIFAR10.
+
+|  LR Policy | Iterations | Reported Accuracy (%)| Achieved Accuracy (%)| Diff (%)|
+|---|---|---|---|---|
+|  *fixed* | 70,000  | 81.4  | 76.0 | 5.4 |
+|  *triangular 2* | 25,000  |  81.4 | 74.5 | 6.9 |
+|  *decay* |  25,000 | 78.5  | 72.0 |6.5 |
+|  *exp* | 70,000  | 79.1  | 68.7  | 10.4 |
+|  *exp_range* | 42,000  | 82.2  | 75.7 | 6.5 |
+
+### Figure 1
+
+Graph displaying accuracy vs. iteration for fixed, exponential and CLR policies on CIFAR10.
+
+#### Reported
 
 ![figure_1](./images/clr_cifar10.png)
 
+#### Achieved
+
+*TODO*
+
+### Figure 3
+
+Result from a learning rate range test on CIFAR10.
+
+#### Reported
+
 ![figure_3](./images/clr_lrrt.png)
+
+#### Achieved
+
+*TODO*
 
 ## Notes
 
