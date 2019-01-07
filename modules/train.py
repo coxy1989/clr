@@ -70,9 +70,10 @@ def on_batch_end(recorder:Dict,
                  p_bar:tqdm,
                  it_num:int,
                  trn_loss:float,
-                 lr: float):
+                 lr: float,
+                 validate_it:int=500):
     'TODO: docstring'
-    if it_num == 0 or (it_num + 1) % 500 == 0 :
+    if it_num == 0 or (it_num + 1) % validate_it == 0 :
         recorder['iteration'].append(it_num + 1)
         recorder['trn_loss'].append(trn_loss)
         recorder['lr'].append(lr)
