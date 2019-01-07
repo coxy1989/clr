@@ -69,7 +69,7 @@ class Cifar10Net_quick(nn.Module):
         return out
 
 class Cifar10Net_full(nn.Module):
-    'Port of caffe architecture: https://github.com/BVLC/caffe/blob/master/examples/cifar10/cifar10_quick_train_test.prototxt'
+    'Port of caffe architecture: https://github.com/BVLC/caffe/blob/master/examples/cifar10/cifar10_full_train_test.prototxt'
 
     def __init__(self, num_classes=10):
         'TODO: docstring'
