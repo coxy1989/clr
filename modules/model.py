@@ -2,7 +2,7 @@ from torch import nn
 
 def init_weights(module:nn.Module):
     if (isinstance(module, nn.Conv2d) or isinstance(module, nn.Linear)):
-        nn.init.normal_(module.weight.data, std=0.01, mean=0)
+        nn.init.normal_(module.weight.data, std=0.0001, mean=0)
         nn.init.constant_(module.bias.data, 0)
 
 class LRN(nn.Module):
@@ -85,8 +85,7 @@ class Cifar10Net_full(nn.Module):
         self.conv3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=5, padding=2)
         self.relu3 = nn.ReLU()
         self.pool3 = nn.AvgPool2d(kernel_size=3, stride=2)
-        self.ip1 = nn.Linear(64 * 3 * 3, 64)
-        self.ip2 = nn.Linear(64, 10)
+        self.ip1 = nn.Linear(64 * 3 * 3, 10)
 
     def forward(self, x):
         'TODO: docstring'
@@ -102,6 +101,5 @@ class Cifar10Net_full(nn.Module):
         out = self.relu3(out)
         out = self.pool3(out)
         out = self.ip1(out.view(out.shape[0], out.shape[1] * out.shape[2] * out.shape[3]))
-        out = self.ip2(out)
         return out
 
