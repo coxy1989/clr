@@ -67,7 +67,7 @@ class TriangularScheduler(optim.lr_scheduler._LRScheduler):
         'TODO: docstring'
         it = self.last_epoch
         lr = _triangular_f(it, self.step_size, self.min_lr, self.max_lr)
-        return [lr] * len(self.optimizer.param_groups)
+        return [lr * pg.get('lr_mult', 1) for pg in self.optimizer.param_groups]
 
 class Triangular2Scheduler(optim.lr_scheduler._LRScheduler):
     'TODO: docstring'
@@ -83,7 +83,7 @@ class Triangular2Scheduler(optim.lr_scheduler._LRScheduler):
         'TODO: docstring'
         it = self.last_epoch
         lr = _triangular2_f(it, self.step_size, self.min_lr, self.max_lr)
-        return [lr] * len(self.optimizer.param_groups)
+        return [lr * pg.get('lr_mult', 1) for pg in self.optimizer.param_groups]
 
 class ExpRangeScheduler(optim.lr_scheduler._LRScheduler):
     'TODO: docstring'
@@ -100,7 +100,7 @@ class ExpRangeScheduler(optim.lr_scheduler._LRScheduler):
         'TODO: docstring'
         it = self.last_epoch
         lr = _exp_range_f(it, self.gamma, self.step_size, self.min_lr, self.max_lr)
-        return [lr] * len(self.optimizer.param_groups)
+        return [lr * pg.get('lr_mult', 1) for pg in self.optimizer.param_groups]
 
 class DecayScheduler(optim.lr_scheduler._LRScheduler):
     'TODO: docstring'
@@ -116,7 +116,7 @@ class DecayScheduler(optim.lr_scheduler._LRScheduler):
         'TODO: docstring'
         it = self.last_epoch
         lr = _decay_f(it, self.step_size, self.min_lr, self.max_lr)
-        return [lr] * len(self.optimizer.param_groups)
+        return [lr * pg.get('lr_mult', 1) for pg in self.optimizer.param_groups]
 
 class ExpScheduler(optim.lr_scheduler._LRScheduler):
     'TODO: docstring'
@@ -131,4 +131,4 @@ class ExpScheduler(optim.lr_scheduler._LRScheduler):
         'TODO: docstring'
         it = self.last_epoch
         lr = _exp_f(it, self.gamma, self.initial_lr)
-        return [lr] * len(self.optimizer.param_groups)
+        return [lr * pg.get('lr_mult', 1) for pg in self.optimizer.param_groups]
