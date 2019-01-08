@@ -1,53 +1,69 @@
 # CLR
 
+[![CircleCI](https://circleci.com/gh/coxy1989/clr.svg?style=svg)](https://circleci.com/gh/coxy1989/clr)
+
 This repository provides an implementation of the paper: *Cyclical Learning Rates for Training Neural Networks* by Leslie N. Smith [1]. 
+
+## TL;DR
+
+TODO
 
 ## Contents
 
-- An implementation of the *triangular* and *triangular2* policies specified in section 3.1 and a reproduction of the experiment described in that section and section 4.1.
-- An implementation of the *Learning Rate Range Test* described in section 3.3 and a reproduction of the experiment in that section on the CIFAR10 dataset.
+- An implementation of the *triangular* and *triangular2* policies specified in section 3.1.
+- An implementation of the *Learning Rate Range Test* described in section 3.3.
+- Pytorch ports of the CIFAR10 Caffe models.
+- Reproductions of experiments which verify the efficacy of CLR in reducing training time.
 
 ## Results
 
-### Table 1
+__UNDER_CONSTRUCTION__
 
-Table of results displaying final accuracies for LR policies on CIFAR10.
+First hack results
 
-|  LR Policy | Iterations | Reported Accuracy (%)| Achieved Accuracy (%)| Diff (%)|
+|  LR Policy | Iterations | Reported Accuracy (%)| Accuracy (%)| Diff (%)|
 |---|---|---|---|---|
 |  *fixed* | 70,000  | 81.4  | 76.0 | 5.4 |
-|  *triangular 2* | 25,000  |  81.4 | 74.5 | 6.9 |
+|  *triangular 2* | **25,000**  |  81.4 | 74.5 | 6.9 |
 |  *decay* |  25,000 | 78.5  | 72.0 |6.5 |
 |  *exp* | 70,000  | 79.1  | 68.7  | 10.4 |
 |  *exp_range* | 42,000  | 82.2  | 75.7 | 6.5 |
 
-### Figure 1
 
-Graph displaying accuracy vs. iteration for fixed, exponential and CLR policies on CIFAR10.
+Cifar10Net_quick
+- with ported caffe `mult` parameters.
 
-#### Reported
+|  LR Policy | Iterations | Accuracy (%)|
+|---|---|---|---|---|
+|  *fixed* | 70,000  |  |
+|  *exp* | 70,000 | |
+|  *triangular* |   |  |
+|  *triangular2* |   |  |
+|  *decay* |   |  |
+|  *exp_range* |   |  |
+
+
+Cifar10Net_quick
+- w/o ported caffe `mult` parameters.
+
+|  LR Policy | Iterations | Accuracy (%)|
+|---|---|---|---|---|
+|  *fixed* | 70,000  | |
+|  *exp* | 70,000 | |
+|  *triangular* |   |  |
+|  *triangular2* |  |  |
+|  *decay* |  |  |
+|  *exp_range* |   |  |
 
 ![figure_1](./images/clr_cifar10.png)
 
-#### Achieved
-
-*TODO*
-
-### Figure 3
-
-Result from a learning rate range test on CIFAR10.
-
-#### Reported
 
 ![figure_3](./images/clr_lrrt.png)
 
-#### Achieved
+## Instructions
 
-*TODO*
 
 ## Notes
-
-## Instructions
 
 ## References
 
