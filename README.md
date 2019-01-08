@@ -2,14 +2,36 @@
 
 [![CircleCI](https://circleci.com/gh/coxy1989/clr.svg?style=svg)](https://circleci.com/gh/coxy1989/clr)
 
-This repository provides an implementation of the *Learning Rate Range Test* and *Cyclical Learning Rates (CLR)* as described in the paper: *Cyclical Learning Rates for Training Neural Networks* by Leslie N. Smith [1].
+This repository provides an implementation of the *Learning Rate Range Test* and *Cyclical Learning Rates (CLR)* as originally described in the paper: *Cyclical Learning Rates for Training Neural Networks* by Leslie N. Smith [1].
 
 What's in the box?
 
-- An implementation of the *triangular* and *triangular2* policies specified in section 3.1.
-- An implementation of the *Learning Rate Range Test* described in section 3.3.
-- Pytorch ports of the CIFAR10 Caffe models.
-- Experiments which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time on CIFAR10.
+- [Implementations](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py) of the *triangular*, *triangular2*, *decay* and *exp_range* policies.
+- An [implementation](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py#L58) of the *Learning Rate Range Test* described in section 3.3.
+- [Ports](https://github.com/coxy1989/clr/blob/master/modules/model.py) of the *'full'* and *'quick'* CIFAR10 Caffe models to pytorch.
+- Experiments which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time, compared to the caffe default CIFAR10 configuration.
+
+## Quickstart
+
+The experiments performed in this repository were conducted on a paperspace instance with a Nvidia Quadro P4000 GPU.
+
+1. `git clone git@github.com:coxy1989/clr.git`
+
+2. `cd clr` 
+
+3. `conda env create -f environment.yml`
+
+3. `source activate clr`
+
+4. `jupyter notebook`
+
+### Run the Notebooks
+
+[Headline Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) - reproduce results from the *Headline Results* section of this README.
+
+[Headline Figures](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_figures.ipynb) - render figures from the *Headline Results* section of this README.
+
+[Schedulers](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/schedulers.ipynb) - render graphs for the learning rate policies.
 
 ## Headline Result
 
@@ -36,7 +58,7 @@ What's in the box?
 |  *fixed* | 70,000  | 76.4 |
 |  *CLR (triangular policy)* | **20,000**  | 76.4 |
 
-- The CLR policy achieves the same accuracy in `20,000` iterations as that obtained by the fixed policy in `70,000`:
+- The CLR policy achieves the same accuracy in `20,000` iterations as that obtained by the fixed policy in `70,000` iterations:
 
 ![figure_1](./images/run.png)
 
@@ -47,6 +69,7 @@ What's in the box?
 ![figure_1](./images/lrrt.png)
 
 
+The architecture with which the experiments above were conducted was [ported](https://github.com/coxy1989/clr/blob/master/modules/model.py) from caffe's CIFAR10 ['quick train test'](https://github.com/BVLC/caffe/blob/master/examples/cifar10/cifar10_quick_train_test.prototxt) configuration.
 
 ## References
 
