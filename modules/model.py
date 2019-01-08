@@ -1,10 +1,5 @@
 from torch import nn
 
-def init_weights(module:nn.Module):
-    if (isinstance(module, nn.Conv2d) or isinstance(module, nn.Linear)):
-        nn.init.normal_(module.weight.data, std=0.0001, mean=0)
-        nn.init.constant_(module.bias.data, 0)
-
 class LRN(nn.Module):
     '''Implementation of local response normalisation. The pytorch implementation does not afford
     within channel normalisation - https://github.com/pytorch/pytorch/issues/653'''

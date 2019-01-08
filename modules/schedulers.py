@@ -44,14 +44,16 @@ def _exp_range_f(it:int, gamma:float, ss:int, min_lr:float, max_lr:float):
 class FixedScheduler(optim.lr_scheduler._LRScheduler):
     'TODO: docstring'
 
-    def __init__(self, optimizer:optim.Optimizer):
+    def __init__(self, fixed_lr:float, optimizer:optim.Optimizer):
         'TODO: docstring'
+        self.fixed_lr = fixed_lr
         super().__init__(optimizer)
 
     def get_lr(self):
         'TODO: docstring'
         # _LRScheduler increments `last_epoch` on each call to `step()`
-        return [pg['lr'] for pg in self.optimizer.param_groups]
+        lr = self.fixed_lr
+        return [lr * pg.get('lr_mult', 1) for pg in self.optimizer.param_groups]
 
 class TriangularScheduler(optim.lr_scheduler._LRScheduler):
     'TODO: docstring'
