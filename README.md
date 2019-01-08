@@ -17,35 +17,34 @@ What's in the box?
 
 *Fixed Policy:*
 
-|  LR | Start | End |
-|---|---|---|
-|  0.001| 0 | 60,000|
-|  0.0001| 60,000 | 65,000|
-|  0.00001| 65,000 | 70,000|
+|  LR 	| Start 		| End 	|
+|---	|---			|---	|
+|  0.001	| 0 		| 60,000|
+|  0.0001	| 60,000 	| 65,000|
+|  0.00001| 65,000 	| 70,000|
 
 *CLR Policy (triangular):*
 
-|  Step Size | Min LR | Max LR | Start | End |
-|---|---|---|---|---|---|
-|  2000| 0.0025 | 0.01| 0 | 35,000
+|  Step Size | Min LR	| Max LR 	| Start| End |
+|---			|---		|---		|---	|---|
+|  2000| 0.0025 | 0.01| 0 | 35,000|
 
 *Fixed vs CLR Training Result:*
 
 |  LR Policy | Iterations | Accuracy (%)|
-|---|---|---|---|---|
+|---|---|---|
 |  *fixed* | 70,000  | 76.4 |
 |  *CLR (triangular policy)* | **20,000**  | 76.4 |
 
-- The CLR policy achieves the same accuracy in 20,000 iterations as that obtained by the fixed policy in 70,000:
+- The CLR policy achieves the same accuracy in `20,000` iterations as that obtained by the fixed policy in `70,000`:
 
 ![figure_1](./images/run.png)
 
-*Learning Rate Range Test*
+*Learning Rate Range Test:*
+
+- Suitable boundries for the CLR policy are at `~0.0025`, where the accuracy starts to increase and at `~0.01`, where the *Learning Rate Range Test* plot becomes ragged:
 
 ![figure_1](./images/lrrt.png)
-
-- The lower boundry for the CLR policy is ~0.0025, where the accuracy starts to increase.
-- A upper boundry for the CLR policy is ~0.01, where the plot becomes ragged.
 
 
 
