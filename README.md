@@ -2,68 +2,51 @@
 
 [![CircleCI](https://circleci.com/gh/coxy1989/clr.svg?style=svg)](https://circleci.com/gh/coxy1989/clr)
 
-This repository provides an implementation of the paper: *Cyclical Learning Rates for Training Neural Networks* by Leslie N. Smith [1]. 
+This repository provides an implementation of the *Learning Rate Range Test* and *Cyclical Learning Rates (CLR)* as described in the paper: *Cyclical Learning Rates for Training Neural Networks* by Leslie N. Smith [1].
 
-## TL;DR
-
-TODO
-
-## Contents
+What's in the box?
 
 - An implementation of the *triangular* and *triangular2* policies specified in section 3.1.
 - An implementation of the *Learning Rate Range Test* described in section 3.3.
 - Pytorch ports of the CIFAR10 Caffe models.
-- Reproductions of experiments which verify the efficacy of CLR in reducing training time.
+- Experiments which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time on CIFAR10.
 
-## Results
+## Headline Result
 
-__UNDER_CONSTRUCTION__
+### LR Policies
 
-First hack results
+*Fixed Policy:*
 
-|  LR Policy | Iterations | Reported Accuracy (%)| Accuracy (%)| Diff (%)|
-|---|---|---|---|---|
-|  *fixed* | 70,000  | 81.4  | 76.0 | 5.4 |
-|  *triangular 2* | **25,000**  |  81.4 | 74.5 | 6.9 |
-|  *decay* |  25,000 | 78.5  | 72.0 |6.5 |
-|  *exp* | 70,000  | 79.1  | 68.7  | 10.4 |
-|  *exp_range* | 42,000  | 82.2  | 75.7 | 6.5 |
+|  LR 	| Start 		| End 	|
+|---	|---			|---	|
+|  0.001	| 0 		| 60,000|
+|  0.0001	| 60,000 	| 65,000|
+|  0.00001| 65,000 	| 70,000|
 
+*CLR Policy (triangular):*
 
-Cifar10Net_quick
-- with ported caffe `mult` parameters.
+|  Step Size | Min LR	| Max LR 	| Start| End |
+|---			|---		|---		|---	|---|
+|  2000| 0.0025 | 0.01| 0 | 35,000|
 
-|  LR Policy | Iterations | Accuracy (%)|
-|---|---|---|---|---|
-|  *fixed* | 70,000  |  |
-|  *exp* | 70,000 | |
-|  *triangular* |   |  |
-|  *triangular2* |   |  |
-|  *decay* |   |  |
-|  *exp_range* |   |  |
-
-
-Cifar10Net_quick
-- w/o ported caffe `mult` parameters.
+*Fixed vs CLR Training Result:*
 
 |  LR Policy | Iterations | Accuracy (%)|
-|---|---|---|---|---|
-|  *fixed* | 70,000  | |
-|  *exp* | 70,000 | |
-|  *triangular* |   |  |
-|  *triangular2* |  |  |
-|  *decay* |  |  |
-|  *exp_range* |   |  |
+|---|---|---|
+|  *fixed* | 70,000  | 76.4 |
+|  *CLR (triangular policy)* | **20,000**  | 76.4 |
 
-![figure_1](./images/clr_cifar10.png)
+- The CLR policy achieves the same accuracy in `20,000` iterations as that obtained by the fixed policy in `70,000`:
+
+![figure_1](./images/run.png)
+
+*Learning Rate Range Test:*
+
+- Suitable boundries for the CLR policy are at `~0.0025`, where the accuracy starts to increase and at `~0.01`, where the *Learning Rate Range Test* plot becomes ragged:
+
+![figure_1](./images/lrrt.png)
 
 
-![figure_3](./images/clr_lrrt.png)
-
-## Instructions
-
-
-## Notes
 
 ## References
 
