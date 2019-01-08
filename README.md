@@ -2,22 +2,30 @@
 
 [![CircleCI](https://circleci.com/gh/coxy1989/clr.svg?style=svg)](https://circleci.com/gh/coxy1989/clr)
 
-This repository provides an implementation of the paper: *Cyclical Learning Rates for Training Neural Networks* by Leslie N. Smith [1]. 
+This repository provides an implementation of the *Learning Rate Range Test* and *Cyclical Learning Rates (CLR)* as described in the paper: *Cyclical Learning Rates for Training Neural Networks* by Leslie N. Smith [1].
 
-## TL;DR
-
-TODO
-
-## Contents
+What's in the box?
 
 - An implementation of the *triangular* and *triangular2* policies specified in section 3.1.
 - An implementation of the *Learning Rate Range Test* described in section 3.3.
 - Pytorch ports of the CIFAR10 Caffe models.
-- Reproductions of experiments which verify the efficacy of CLR in reducing training time.
+- Experiments which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time on CIFAR10.
 
-## Results
+## Headline Result
 
-__UNDER_CONSTRUCTION__
+
+|  LR Policy | Iterations | Accuracy (%)|
+|---|---|---|---|---|
+|  *fixed* | 70,000  | 76.4 |
+|  *CLR (triangular policy)* | **20,000**  | 76.4 |
+
+![figure_1](./images/run.png)
+
+![figure_1](./images/lrrt.png)
+
+## Other Results
+
+TODO - note results from experiments
 
 First hack results
 
@@ -55,15 +63,22 @@ Cifar10Net_quick
 |  *decay* |  |  |
 |  *exp_range* |   |  |
 
-![figure_1](./images/clr_cifar10.png)
-
-
-![figure_3](./images/clr_lrrt.png)
 
 ## Instructions
 
+TODO - dev instructions to build / run / test
 
 ## Notes
+
+TODO - write up
+
+- decay policy hyper-params in 4.1.1
+- p1: reference architecture not precisely specified
+- local response normalisation: 3.1.1 of http://www.cs.toronto.edu/~fritz/absps/imagenet.pdf, within_channel not supported by pytorch
+- bias / weight lr_mult differential lr unusual + no literature online
+- weight_decay mult huge in last layer - prevents training?
+- initialisation - can’t train with specified config
+- full model has fewer params than quick model, which seems odd.
 
 ## References
 
