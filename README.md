@@ -13,72 +13,41 @@ What's in the box?
 
 ## Headline Result
 
+### LR Policies
+
+*Fixed Policy:*
+
+|  LR | Start | End |
+|---|---|---|
+|  0.001| 0 | 60,000|
+|  0.0001| 60,000 | 65,000|
+|  0.00001| 65,000 | 70,000|
+
+*CLR Policy (triangular):*
+
+|  Step Size | Min LR | Max LR | Start | End |
+|---|---|---|---|---|---|
+|  2000| 0.0025 | 0.01| 0 | 35,000
+
+*Fixed vs CLR Training Result:*
 
 |  LR Policy | Iterations | Accuracy (%)|
 |---|---|---|---|---|
 |  *fixed* | 70,000  | 76.4 |
 |  *CLR (triangular policy)* | **20,000**  | 76.4 |
 
+- The CLR policy achieves the same accuracy in 20,000 iterations as that obtained by the fixed policy in 70,000:
+
 ![figure_1](./images/run.png)
+
+*Learning Rate Range Test*
 
 ![figure_1](./images/lrrt.png)
 
-## Other Results
-
-TODO - note results from experiments
-
-First hack results
-
-|  LR Policy | Iterations | Reported Accuracy (%)| Accuracy (%)| Diff (%)|
-|---|---|---|---|---|
-|  *fixed* | 70,000  | 81.4  | 76.0 | 5.4 |
-|  *triangular 2* | **25,000**  |  81.4 | 74.5 | 6.9 |
-|  *decay* |  25,000 | 78.5  | 72.0 |6.5 |
-|  *exp* | 70,000  | 79.1  | 68.7  | 10.4 |
-|  *exp_range* | 42,000  | 82.2  | 75.7 | 6.5 |
+- The lower boundry for the CLR policy is ~0.0025, where the accuracy starts to increase.
+- A upper boundry for the CLR policy is ~0.01, where the plot becomes ragged.
 
 
-Cifar10Net_quick
-- with ported caffe `mult` parameters.
-
-|  LR Policy | Iterations | Accuracy (%)|
-|---|---|---|---|---|
-|  *fixed* | 70,000  |  |
-|  *exp* | 70,000 | |
-|  *triangular* |   |  |
-|  *triangular2* |   |  |
-|  *decay* |   |  |
-|  *exp_range* |   |  |
-
-
-Cifar10Net_quick
-- w/o ported caffe `mult` parameters.
-
-|  LR Policy | Iterations | Accuracy (%)|
-|---|---|---|---|---|
-|  *fixed* | 70,000  | |
-|  *exp* | 70,000 | |
-|  *triangular* |   |  |
-|  *triangular2* |  |  |
-|  *decay* |  |  |
-|  *exp_range* |   |  |
-
-
-## Instructions
-
-TODO - dev instructions to build / run / test
-
-## Notes
-
-TODO - write up
-
-- decay policy hyper-params in 4.1.1
-- p1: reference architecture not precisely specified
-- local response normalisation: 3.1.1 of http://www.cs.toronto.edu/~fritz/absps/imagenet.pdf, within_channel not supported by pytorch
-- bias / weight lr_mult differential lr unusual + no literature online
-- weight_decay mult huge in last layer - prevents training?
-- initialisation - can’t train with specified config
-- full model has fewer params than quick model, which seems odd.
 
 ## References
 
