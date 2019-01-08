@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: continuumio/miniconda
+
+    working_directory: ~/clr
+
+    steps:
+      - checkout
+
+      - run:
+          name: install dependencies
+          command: |
+            conda env create -f environment.yml
+            source activate clr
+
+      - run:
+          name: run tests
+          command: |
+            make test
+
