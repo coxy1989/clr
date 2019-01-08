@@ -18,5 +18,6 @@ jobs:
       - run:
           name: run tests
           command: |
+            source activate clr
             python -m unittest discover -s tests
 
