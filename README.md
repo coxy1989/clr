@@ -9,7 +9,7 @@ What's in the box?
 - [Implementations](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py) of the *triangular*, *triangular2*, *decay* and *exp_range* policies.
 - An [implementation](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py#L58) of the *Learning Rate Range Test* described in section 3.3.
 - [Ports](https://github.com/coxy1989/clr/blob/master/modules/model.py) of the *'full'* and *'quick'* CIFAR10 Caffe models to pytorch.
-- Experiments which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time, compared to the caffe default CIFAR10 configuration.
+- [Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time, compared to the caffe default CIFAR10 configuration.
 
 ## Quickstart
 
