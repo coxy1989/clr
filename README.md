@@ -9,9 +9,11 @@ What's in the box?
 - [Implementations](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py) of the *triangular*, *triangular2*, *decay* and *exp_range* policies.
 - An [implementation](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py#L58) of the *Learning Rate Range Test* described in section 3.3.
 - [Ports](https://github.com/coxy1989/clr/blob/master/modules/model.py) of the *'full'* and *'quick'* CIFAR10 Caffe models to pytorch.
-- Experiments which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time on CIFAR10.
+- Experiments which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time, compared to the caffe default CIFAR10 configuration.
 
 ## Quickstart
+
+The experiments performed in this repository were conducted on a paperspace instance with a Nvidia Quadro P4000 GPU.
 
 1. `git clone git@github.com:coxy1989/clr.git`
 
@@ -23,7 +25,13 @@ What's in the box?
 
 4. `jupyter notebook`
 
-The experiments performed in this repository were conducted on a paperspace instance with a Nvidia Quadro P4000 GPU.
+### Run the Notebooks
+
+[Headline Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) - reproduce results from the *Headline Results* section of this README.
+
+[Headline Figures](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_figures.ipynb) - render figures from the *Headline Results* section of this README.
+
+[Schedulers](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/schedulers.ipynb) - render graphs for the learning rate policies.
 
 ## Headline Result
 
