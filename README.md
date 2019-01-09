@@ -27,13 +27,13 @@ The experiments performed in this repository were conducted on a paperspace inst
 
 ### Run the Notebooks
 
-[Headline Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) - reproduce results from the *Headline Results* section of this README.
+[Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) - reproduce results from the *Result* section of this README.
 
-[Headline Figures](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_figures.ipynb) - render figures from the *Headline Results* section of this README.
+[Figures](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_figures.ipynb) - render figures from the *Result* section of this README.
 
-[Schedulers](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/schedulers.ipynb) - render graphs for the learning rate policies.
+[Schedulers](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/schedulers.ipynb) - render graphs for learning rate policies.
 
-## Headline Result
+## Result
 
 ### LR Policies
 
@@ -51,12 +51,12 @@ The experiments performed in this repository were conducted on a paperspace inst
 |---			|---		|---		|---	|---|
 |  2000| 0.0025 | 0.01| 0 | 35,000|
 
-*Fixed vs CLR Training Result:*
+*Fixed vs CLR Training Result (average of 5 training runs):*
 
 |  LR Policy | Iterations | Accuracy (%)|
 |---|---|---|
-|  *fixed* | 70,000  | 76.4 |
-|  *CLR (triangular policy)* | **20,000**  | 76.4 |
+|  *fixed* | 70,000  | 76.0 |
+|  *CLR (triangular policy)* | **20,000**  | 76.0 |
 
 - The CLR policy achieves the same accuracy in `20,000` iterations as that obtained by the fixed policy in `70,000` iterations:
 
