@@ -33,7 +33,7 @@ The experiments performed in this repository were conducted on a paperspace inst
 
 [Schedulers](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/schedulers.ipynb) - render graphs for learning rate policies.
 
-## Result
+## Results
 
 ### LR Policies
 
