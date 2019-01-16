@@ -25,7 +25,7 @@ The experiments performed in this repository were conducted on a paperspace inst
 
 4. `jupyter notebook`
 
-### Run the Notebooks
+### Notebooks
 
 [Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) - reproduce results from the *Result* section of this README.
 
