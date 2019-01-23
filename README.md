@@ -11,9 +11,9 @@ What's in the box?
 - [Ports](https://github.com/coxy1989/clr/blob/master/modules/model.py) of the *'full'* and *'quick'* CIFAR10 Caffe models to pytorch.
 - [Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time, compared to the caffe default CIFAR10 configuration.
 
-## Quickstart
+*The experiments performed in this repository were conducted on an Ubuntu 18.04 paperspace instance with a Nvidia Quadro P4000 GPU, NVIDIA Driver: 410.48, CUDA 10.0.130-1.*
 
-The experiments performed in this repository were conducted on a paperspace instance with a Nvidia Quadro P4000 GPU.
+## Quickstart
 
 1. `git clone git@github.com:coxy1989/clr.git`
 
