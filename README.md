@@ -7,9 +7,9 @@ This repository provides an implementation of the *Learning Rate Range Test* and
 What's in the box?
 
 - [Implementations](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py) of the *triangular*, *triangular2*, *decay* and *exp_range* policies.
-- An [implementation](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py#L58) of the *Learning Rate Range Test* described in section 3.3.
-- [Ports](https://github.com/coxy1989/clr/blob/master/modules/model.py) of the *'full'* and *'quick'* CIFAR10 Caffe models to pytorch.
-- [Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time, compared to the caffe default CIFAR10 configuration.
+- [Implementation](https://github.com/coxy1989/clr/blob/master/modules/schedulers.py#L58) of the *Learning Rate Range Test* described in `Section 3.3`
+- [Ports](https://github.com/coxy1989/clr/blob/master/modules/model.py) of the *full* and *quick* CIFAR10 Caffe models to pytorch.
+- [Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time, compared to the default Caffe configuration.
 
 ## Quickstart
 
@@ -27,17 +27,15 @@ The experiments performed in this repository were conducted on a paperspace inst
 
 ### Run the Notebooks
 
-[Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) - reproduce results from the *Result* section of this README.
+[Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) - Reproduce results from the *Result* section of this README.
 
-[Figures](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_figures.ipynb) - render figures from the *Result* section of this README.
+[Figures](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_figures.ipynb) - Render figures from the *Result* section of this README.
 
-[Schedulers](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/schedulers.ipynb) - render graphs for learning rate policies.
+[Schedulers](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/schedulers.ipynb) - Render graphs for learning rate policies.
 
 ## Result
 
-### LR Policies
-
-*Fixed Policy:*
+*The architecture with which the experiments below were conducted was [ported](https://github.com/coxy1989/clr/blob/master/modules/model.py) from caffe's CIFAR10 ['quick train test'](https://github.com/BVLC/caffe/blob/master/examples/cifar10/cifar10_quick_train_test.prototxt) configuration.*
 
 |  LR 	| Start 		| End 	|
 |---	|---			|---	|
@@ -45,31 +43,28 @@ The experiments performed in this repository were conducted on a paperspace inst
 |  0.0001	| 60,000 	| 65,000|
 |  0.00001| 65,000 	| 70,000|
 
-*CLR Policy (triangular):*
+**Table 1:** *Fixed* policy schedule
 
 |  Step Size | Min LR	| Max LR 	| Start| End |
 |---			|---		|---		|---	|---|
 |  2000| 0.0025 | 0.01| 0 | 35,000|
 
-*Fixed vs CLR Training Result (average of 5 training runs):*
+**Table 2:** *CLR* policy schedule
 
 |  LR Policy | Iterations | Accuracy (%)|
 |---|---|---|
 |  *fixed* | 70,000  | 76.0 |
 |  *CLR (triangular policy)* | **20,000**  | 76.0 |
 
-- The CLR policy achieves the same accuracy in `20,000` iterations as that obtained by the fixed policy in `70,000` iterations:
+**Table 3:** *Fixed vs CLR Training Result (average of 5 training runs)*. The CLR policy achieves the same accuracy in `20,000` iterations as that obtained by the fixed policy in `70,000` iterations:
 
 ![figure_1](./images/run.png)
 
-*Learning Rate Range Test:*
-
-- Suitable boundries for the CLR policy are at `~0.0025`, where the accuracy starts to increase and at `~0.01`, where the *Learning Rate Range Test* plot becomes ragged:
+**Plot 1:** *Iteration vs Accuracy for the result in Table 3*
 
 ![figure_1](./images/lrrt.png)
 
-
-The architecture with which the experiments above were conducted was [ported](https://github.com/coxy1989/clr/blob/master/modules/model.py) from caffe's CIFAR10 ['quick train test'](https://github.com/BVLC/caffe/blob/master/examples/cifar10/cifar10_quick_train_test.prototxt) configuration.
+**Plot 2:** *Learning Rate Range Test:* Suitable boundries for the CLR policy are at `~0.0025`, where the accuracy starts to increase and at `~0.01`, where the *Learning Rate Range Test* plot becomes ragged.
 
 ## References
 
