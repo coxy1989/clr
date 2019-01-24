@@ -11,9 +11,9 @@ What's in the box?
 - [Ports](https://github.com/coxy1989/clr/blob/master/modules/model.py) of the *full* and *quick* CIFAR10 Caffe models to pytorch.
 - [Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) which verify the efficacy of *CLR* combined with the *Learning Rate Range Test* in reducing training time, compared to the default Caffe configuration.
 
-## Quickstart
+*The experiments performed in this repository were conducted on an Ubuntu 18.04 paperspace instance with a Nvidia Quadro P4000 GPU, NVIDIA Driver: 410.48, CUDA 10.0.130-1.*
 
-The experiments performed in this repository were conducted on a paperspace instance with a Nvidia Quadro P4000 GPU.
+## Quickstart
 
 1. `git clone git@github.com:coxy1989/clr.git`
 
@@ -25,7 +25,7 @@ The experiments performed in this repository were conducted on a paperspace inst
 
 4. `jupyter notebook`
 
-### Run the Notebooks
+### Notebooks
 
 [Experiments](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/headline_experiment.ipynb) - Reproduce results from the *Result* section of this README.
 
@@ -33,7 +33,7 @@ The experiments performed in this repository were conducted on a paperspace inst
 
 [Schedulers](https://nbviewer.jupyter.org/github/coxy1989/clr/blob/master/notebooks/schedulers.ipynb) - Render graphs for learning rate policies.
 
-## Result
+## Results
 
 *The architecture with which the experiments below were conducted was [ported](https://github.com/coxy1989/clr/blob/master/modules/model.py) from caffe's CIFAR10 ['quick train test'](https://github.com/BVLC/caffe/blob/master/examples/cifar10/cifar10_quick_train_test.prototxt) configuration.*
 
